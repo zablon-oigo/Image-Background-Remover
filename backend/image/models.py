@@ -12,5 +12,6 @@ class Image(models.Model):
     def save(self, *args, **kwargs):
         pil_img=PIL.Image.open(self.img)
         img=np.array(pil_img)
-        rmbg=segmentor.removeBG(img, (0,255,0))
+        rmbg=segmentor.removeBG(img, (0,255,0), threshold=0.4)
+        buffer=BytesIO()
 
