@@ -14,4 +14,6 @@ class Image(models.Model):
         img=np.array(pil_img)
         rmbg=segmentor.removeBG(img, (0,255,0), threshold=0.4)
         buffer=BytesIO()
+        output_img=PIL.Image.fromarray(rmbg)
+        output_img.save(buffer, format="png")
 
