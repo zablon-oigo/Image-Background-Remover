@@ -1,5 +1,6 @@
 from django.db import models
-
+import PIL
+import numpy as np
 
 class Image(models.Model):
     img=models.ImageField(upload_to="images")
@@ -9,4 +10,7 @@ class Image(models.Model):
         return str(self.id)
     
     def save(self, *args, **kwargs):
-        pil_img=PIL.Image.open(self.img)    
+        pil_img=PIL.Image.open(self.img)
+        img=np.array(pil_img)
+        rmbg=segmentor.removeBG(img, (0,255,0))
+
