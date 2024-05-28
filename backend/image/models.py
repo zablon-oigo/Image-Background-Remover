@@ -8,3 +8,5 @@ class Image(models.Model):
     def __str__(self):
         return str(self.id)
     
+    def save(self, *args, **kwargs):
+        pil_img=PIL.Image.open(self.img)    
