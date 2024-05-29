@@ -2,6 +2,8 @@ from django.db import models
 import PIL
 from io import BytesIO
 import numpy as np
+import os
+from django.core.files.base import ContentFile
 from cvzone.SelfiSegmentationModule import SelfiSegmentation
 class Image(models.Model):
     img=models.ImageField(upload_to="images")
@@ -18,4 +20,11 @@ class Image(models.Model):
         buffer=BytesIO()
         output_img=PIL.Image.fromarray(rmbg)
         output_img.save(buffer, format="png")
+        val=buffer.getvalue()
+        filename=os.path.basename(self, img.name)
+        name, _ =filename.split(".")
+        self.rmbg_img(f"bgrm_{name}.png", ContentFile(val), save=False)
+        super().save(*args, **kwargs)
+
+
 
