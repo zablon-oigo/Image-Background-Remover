@@ -7,7 +7,7 @@ from django.core.files.base import ContentFile
 from cvzone.SelfiSegmentationModule import SelfiSegmentation
 class Image(models.Model):
     img=models.ImageField(upload_to="images")
-    rmbg_img=models.ImageField(upload_to="images_rmbg")
+    rmbg_img=models.ImageField(blank=True, upload_to="images_rmbg")
 
     def __str__(self):
         return str(self.id)
