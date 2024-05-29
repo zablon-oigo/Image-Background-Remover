@@ -23,7 +23,7 @@ class Image(models.Model):
         val=buffer.getvalue()
         filename=os.path.basename(self, img.name)
         name, _ =filename.split(".")
-        self.rmbg_img(f"bgrm_{name}.png", ContentFile(val), save=False)
+        self.rmbg_img.save(f"bgrm_{name}.png", ContentFile(val), save=False)
         super().save(*args, **kwargs)
 
 
