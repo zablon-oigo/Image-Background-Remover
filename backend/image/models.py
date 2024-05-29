@@ -14,14 +14,14 @@ class Image(models.Model):
     
     def save(self, *args, **kwargs):
         pil_img=PIL.Image.open(self.img)
-        img=np.array(pil_img)
+        img = np.array(pil_img)
         segmentor=SelfiSegmentation()
-        rmbg=segmentor.removeBG(img, (0,255,0), threshold=0.4)
+        rmbg=segmentor.removeBG(img, (0,255,0))
         buffer=BytesIO()
         output_img=PIL.Image.fromarray(rmbg)
         output_img.save(buffer, format="png")
         val=buffer.getvalue()
-        filename=os.path.basename(self, img.name)
+        filename=os.path.basename(self.img.name)
         name, _ =filename.split(".")
         self.rmbg_img.save(f"bgrm_{name}.png", ContentFile(val), save=False)
         super().save(*args, **kwargs)
