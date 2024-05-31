@@ -3,7 +3,7 @@ import { useState } from "react";
 function DropZone() {
     const[alert, setAlert]=useSate(
         {
-            isVisible:true,
+            isVisible:false,
             type:null,
             msg:null,
         }
@@ -12,7 +12,7 @@ function DropZone() {
     const[isVisible, type, msg]=alert
   return (
     <div>
-        {alert.isVisible && <Alert/>}
+        {isVisible && <Alert/>}
     </div>
   )
 }
