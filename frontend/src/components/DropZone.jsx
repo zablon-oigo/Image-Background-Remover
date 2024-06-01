@@ -33,6 +33,14 @@ const onDrop=(file)=>{
     }
   }
 }
+const getImage=async(id)=>{
+  try{
+
+  }
+  catch (e){
+    console.log(e)
+  }
+}
     const[isVisible, type, msg]=alert
   return (
     <div>
