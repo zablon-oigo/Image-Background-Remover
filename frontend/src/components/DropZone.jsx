@@ -16,6 +16,8 @@ const onDrop=(file)=>{
   })
   const sendImage=async(image)=>{
     try{
+      let formData=new FormData()
+      formData('img',image[0],image[0].name)
 
     }
     catch(e){
