@@ -35,6 +35,10 @@ const onDrop=(file)=>{
 }
 const getImage=async(id)=>{
   try{
+    const response=fetch(`${url}/images${id}/download`,{
+      method:'GET',
+      responseType:'blob',
+    })
 
   }
   catch (e){
