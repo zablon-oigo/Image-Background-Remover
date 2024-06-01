@@ -8,7 +8,13 @@ function DropZone() {
             msg:null,
         }
     );
-
+const onDrop=(file)=>{
+  setAlert({
+    isVisible:false,
+    type:null,
+    msg:null,
+  })
+}
     const[isVisible, type, msg]=alert
   return (
     <div>
