@@ -14,6 +14,15 @@ const onDrop=(file)=>{
     type:null,
     msg:null,
   })
+  const sendImage=async(image)=>{
+    try{
+
+    }
+    catch(e){
+      console.log(e)
+      setAlert({isVisible:true, type:'error','msg':'something went wrong...'})
+    }
+  }
 }
     const[isVisible, type, msg]=alert
   return (
