@@ -18,6 +18,13 @@ const onDrop=(file)=>{
     try{
       let formData=new FormData()
       formData('img',image[0],image[0].name)
+      const response=await fetch(`${url}/images/`, {
+        method:"POST",
+        body:formData
+      })
+      const data=await response.json()
+      const {id}=data
+      getImage(id)
 
     }
     catch(e){
