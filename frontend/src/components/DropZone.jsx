@@ -41,6 +41,9 @@ const getImage=async(id)=>{
     })
     const data =(await response).blob()
     const href = window.URL.createObjectURL(data)
+    const downloadLink = document.createElement('a')
+    downloadLink.href =href
+    downloadLink.setAttribute('download','removed_bg_img.png')
 
   }
   catch (e){
