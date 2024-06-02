@@ -47,7 +47,11 @@ const getImage=async(id)=>{
     document.body.appendChild(downloadLink)
     downloadLink.click()
     document.body.removeChild(downloadLink)
-
+    setAlert({
+      isVisible:true,
+      type:"success",
+      msg:"success",
+    })
 
   }
   catch (e){
