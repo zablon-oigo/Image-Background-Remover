@@ -39,6 +39,8 @@ const getImage=async(id)=>{
       method:'GET',
       responseType:'blob',
     })
+    const data =(await response).blob()
+    const href = window.URL.createObjectURL(data)
 
   }
   catch (e){
