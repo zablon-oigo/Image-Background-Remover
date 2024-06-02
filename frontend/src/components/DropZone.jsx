@@ -44,6 +44,8 @@ const getImage=async(id)=>{
     const downloadLink = document.createElement('a')
     downloadLink.href =href
     downloadLink.setAttribute('download','removed_bg_img.png')
+    document.body.appendChild(downloadLink)
+    downloadLink.click()
 
   }
   catch (e){
